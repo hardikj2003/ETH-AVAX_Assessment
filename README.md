@@ -52,6 +52,9 @@ To use the `MyContract` smart contract, follow these steps:
 3. Verify that the withdrawal conditions are satisfied and the transfer is successful.
 4. To check the current balance of the contract, call the `getContractBalance` function.
 
+## Video Walkthrough
+https://www.loom.com/share/9b426f7db9e84103af8e9ecab11b81ea?sid=f5f3ecef-246c-4fc4-8011-aaf72e3eda4c
+
 ## Credits
 
 This project is a solution to the project task provided by MetaCrafters
