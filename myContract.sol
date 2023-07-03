@@ -1,26 +1,26 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.17;
 
-contract MyContract {
-    address private owner;
-
-    constructor() {
-        owner = msg.sender;
+contract ErrorHandling {
+   
+    function Assertfun(uint num) public pure{
+        assert(num!=0);
     }
 
-    function withdraw(uint amount) public {
-        require(amount > 0, "Amount must be greater than zero"); // Using require statement
+    function divide(uint _numerator, uint _denomenator) public pure returns (uint){
+        if(_numerator<_denomenator){
+           
+            revert("Pls input numerator greater than denomenator.");
+            
+        }
+        return _numerator/_denomenator;
+       
 
-        uint balance = address(this).balance;
-        require(balance >= amount, "Insufficient contract balance"); // Using require statement
-
-        (bool success, ) = msg.sender.call{value: amount}("");
-        assert(success); // Using assert statement
-
-        revert("Withdrawal failed"); // Using revert statement
     }
+    function multiple(uint a) public view returns (uint){
+        require(a>0,"Enter more then 0.");
+        return a*mult;
 
-    function getContractBalance() public view returns (uint) {
-        return address(this).balance;
     }
+uint mult=3;
 }
