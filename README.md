@@ -1,7 +1,6 @@
 # Metacrafters Project 
 
-This repository contains the source code for the `MyContract` smart contract. It is a simple smart contract that integrates the functionality of the require(), assert(), and revert() error handlers. It provides a unified error handling mechanism for different conditions and scenarios.
-
+This repository contains the source code for the `MyContract` smart contract. It is a simple smart contract that integrates the functionality of the require(), assert(), and revert() error handlers. 
 ## Prerequisites
 
 Before running the smart contract, make sure you have the following prerequisites installed:
@@ -19,27 +18,27 @@ Follow the steps below to get started with the `MyContract` smart contract:
 4. Deploy the contract to your preferred Ethereum network.
 5. Interact with the contract using the provided functions.
 
-## Contract Details
+## Overview
+The `TripleErrorHandler` contract provides a `mint()` function that allows users to mint a specified amount of tokens. It incorporates the following error handlers:
 
-### Description
+- `require()`: Checks whether the `amount` parameter is greater than zero. If the condition evaluates to false, the function will revert with the error message "Amount must be greater than zero". The `require()` function is commonly used to validate inputs and conditions that must be true for the function to execute successfully.
 
-The handleError() function is the main entry point to use the error handling functionality of ErrorContract. It takes a boolean parameter condition
+- `assert()`: Verifies that the total supply of tokens is greater than zero after the minting operation. If the condition evaluates to false, it will trigger an exception and revert the transaction. The `assert()` function is typically used to check for internal errors and invariant violations that should never occur.
 
+- `revert()`: Checks whether the total supply of tokens exceeds a predefined limit (in this case, 100). If the condition evaluates to true, the function will revert with the error message "Total supply exceeds the limit". The `revert()` function is often used to explicitly revert the transaction under specific conditions.
+
+## Decsription
+TripleErrorHandler is a simple smart contract that demonstrates the usage of the `require()`, `assert()`, and `revert()` error handlers in a minting function. It allows minting tokens while incorporating these error handlers to ensure proper validation and error handling.
 
 ## Usage
 
-### Functions
+To use the `TripleErrorHandler` contract in your own project, follow these steps:
 
-The handleError() function is the main entry point to use the error handling functionality of ErrorContract. It takes a boolean parameter condition and performs the following checks:
+1. Import the `TripleErrorHandler` contract into your Solidity contract:
 
-If the condition is true, it first uses require() to validate the condition. If the condition evaluates to false, it will revert the transaction with the provided error message "Require error: Condition not met". The require() function is commonly used to validate inputs and conditions that must be true for the function to execute successfully.
+   ```solidity
+   import "./TripleErrorHandler.sol";
 
-After the require() check, it uses assert() to perform the same condition check. If the condition evaluates to false, it will trigger an exception and revert the transaction. The assert() function is typically used to check for internal errors and invariant violations that should never occur.
-
-If the condition is false, it bypasses the require() and assert() checks and directly reverts the transaction with the error message "Revert error: Condition not met". The revert() function is often used to explicitly revert the transaction under specific conditions.
-
-## Video Walkthrough
-https://www.loom.com/share/9b426f7db9e84103af8e9ecab11b81ea?sid=f5f3ecef-246c-4fc4-8011-aaf72e3eda4c
 
 ## Credits
 
