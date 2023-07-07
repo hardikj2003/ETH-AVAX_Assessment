@@ -1,6 +1,6 @@
 # Metacrafters Project 
 
-This repository contains the source code for the `MyContract` smart contract. The contract is written in Solidity version 0.8.0 and implements the `withdraw` function with require, assert, and revert statements, along with the `getContractBalance` function.
+This repository contains the source code for the `MyContract` smart contract. It is a simple smart contract that integrates the functionality of the require(), assert(), and revert() error handlers. It provides a unified error handling mechanism for different conditions and scenarios.
 
 ## Prerequisites
 
@@ -23,34 +23,20 @@ Follow the steps below to get started with the `MyContract` smart contract:
 
 ### Description
 
-The `MyContract` contract allows the contract owner to withdraw funds from the contract balance. The contract owner is set during the contract deployment.
+The handleError() function is the main entry point to use the error handling functionality of ErrorContract. It takes a boolean parameter condition
 
-### Functions
-
-#### `constructor()`
-
-The constructor function is executed once during contract deployment. It sets the contract owner to the address of the message sender.
-
-#### `withdraw(uint amount)`
-
-The `withdraw` function allows the contract owner to withdraw a specified amount of funds from the contract balance. It includes several checks using require statements to ensure the withdrawal conditions are met:
-- The amount must be greater than zero.
-- The contract balance must be equal to or greater than the requested amount.
-
-If the require conditions are satisfied, the function attempts to transfer the funds to the message sender using the `call` function. The `assert` statement checks if the transfer was successful. If the transfer fails, the function reverts with an error message using the `revert` statement.
-
-#### `getContractBalance()`
-
-The `getContractBalance` function is a view function that returns the current balance of the contract.
 
 ## Usage
 
-To use the `MyContract` smart contract, follow these steps:
+### Functions
 
-1. Deploy the contract by calling the constructor function.
-2. As the contract owner, call the `withdraw` function and provide the amount to withdraw.
-3. Verify that the withdrawal conditions are satisfied and the transfer is successful.
-4. To check the current balance of the contract, call the `getContractBalance` function.
+The handleError() function is the main entry point to use the error handling functionality of ErrorContract. It takes a boolean parameter condition and performs the following checks:
+
+If the condition is true, it first uses require() to validate the condition. If the condition evaluates to false, it will revert the transaction with the provided error message "Require error: Condition not met". The require() function is commonly used to validate inputs and conditions that must be true for the function to execute successfully.
+
+After the require() check, it uses assert() to perform the same condition check. If the condition evaluates to false, it will trigger an exception and revert the transaction. The assert() function is typically used to check for internal errors and invariant violations that should never occur.
+
+If the condition is false, it bypasses the require() and assert() checks and directly reverts the transaction with the error message "Revert error: Condition not met". The revert() function is often used to explicitly revert the transaction under specific conditions.
 
 ## Video Walkthrough
 https://www.loom.com/share/9b426f7db9e84103af8e9ecab11b81ea?sid=f5f3ecef-246c-4fc4-8011-aaf72e3eda4c
