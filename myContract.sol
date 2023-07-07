@@ -1,12 +1,18 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract ErrorContract {
-    function handleError(bool condition) public pure {
-        if (condition) {
-            require(condition, "Require error: Condition not met");
-            assert(condition);
-        } else {
-            revert("Revert error: Condition not met");
+contract TripleErrorHandler {
+    uint256 public totalSupply;
+    
+    function mint(uint256 amount) public {
+        require(amount > 0, "Amount must be greater than zero");
+        
+        totalSupply += amount;
+        
+        assert(totalSupply > 0);
+        
+        if (totalSupply > 100) {
+            revert("Total supply exceeds the limit");
         }
     }
 }
