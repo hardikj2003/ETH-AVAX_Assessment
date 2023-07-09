@@ -1,27 +1,35 @@
-# TripleErrorHandler
+# Solidity Error Handling Assessment
+This repository is for the project assessment of the project of the 1st module of : solidity-avax-intermediate course of Metacrafters academy . The purpose of creating this to prove my learning and to showcase my skill as a solidity developer to the people
 
-TripleErrorHandler is a simple smart contract that demonstrates the usage of the `require()`, `assert()`, and `revert()` error handlers in a minting function. It allows minting tokens while incorporating these error handlers to ensure proper validation and error handling.
+## Problem Statement
 
-## Overview
+write a smart contract that implements the require(), assert() and revert() statements.
 
-The `TripleErrorHandler` contract provides a `mint()` function that allows users to mint a specified amount of tokens. It incorporates the following error handlers:
+## Description
+This program is a simple contract written in Solidity, a programming language used for developing smart contracts on the Ethereum blockchain. The contract has a single function that sets the value of the varble by checking some constrains as given in program an to divide the two values taken from the user by checking that the number is divisible and the value od denominator is not equal to 0. This program uses the concept of Functions and Error handling.
 
-- `require()`: Checks whether the `amount` parameter is greater than zero. If the condition evaluates to false, the function will revert with the error message "Amount must be greater than zero". The `require()` function is commonly used to validate inputs and conditions that must be true for the function to execute successfully.
+The setValue function sets a new value but requires that the input _newValue must be greater than zero. It uses require() for input validation and assert() to ensure that the new value is different from the existing value.
 
-- `assert()`: Verifies that the total supply of tokens is greater than zero after the minting operation. If the condition evaluates to false, it will trigger an exception and revert the transaction. The `assert()` function is typically used to check for internal errors and invariant violations that should never occur.
+The performDivison function performs a division but requires that the _denominator must be non-zero. If the _numerator is not divisible by the _denominator, the function will revert with a specific error message using the revert() statement.
 
-- `revert()`: Checks whether the total supply of tokens exceeds a predefined limit (in this case, 100). If the condition evaluates to true, the function will revert with the error message "Total supply exceeds the limit". The `revert()` function is often used to explicitly revert the transaction under specific conditions.
+It's essential to use these error handling statements judiciously to maintain the security and correctness of your smart contract. Remember that require() and revert() consume all gas when they fail, while assert() should only be used to check for internal errors and should not fail under normal conditions.
 
-## Usage
+## Getting Started
 
-To use the `TripleErrorHandler` contract in your own project, follow these steps:
+### Executing Program
 
-1. Import the `TripleErrorHandler` contract into your Solidity contract:
+To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at https://remix.ethereum.org/.
 
-   ```solidity
-   import "./TripleErrorHandler.sol";
-   
-##License
-This project is licensed under the MIT License.
+Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a .sol extension (e.g., playground.sol). Copy and paste the following code written by me into the file.
 
-Feel free to modify the README.md file according to your needs or project structure.
+To compile the code, click on the "Solidity Compiler" tab in the left-hand sidebar. Make sure the "Compiler" option is set heigher to "0.8.1" (or another compatible version), and then click on the "Compile playground.sol" button.
+
+Once the code is compiled, you can deploy the contract by clicking on the "Deploy & Run Transactions" tab in the left-hand sidebar. Select the "ErrorHandlingContract" contract from the dropdown menu, and then click on the "Deploy" button.
+
+Once the contract is deployed, you can interact with it by calling the setValue function to set the value, performDivison function to perform the division and value variable check to check the value of the variable that is publick so we can check that. Finally, click on the "transact" button to execute the function and retrieve the values and messages.
+## Video Walkthrough
+
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details
